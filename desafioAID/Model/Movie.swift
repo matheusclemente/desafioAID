@@ -16,7 +16,8 @@ struct Movie: Identifiable {
     let overview: String
     let genresId: [Int]
     var releaseYear: String {
-        return String(releaseDate.prefix(4))
+        String(releaseDate.prefix(4))
     }
+    
     
 }

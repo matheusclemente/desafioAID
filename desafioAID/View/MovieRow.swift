@@ -12,8 +12,12 @@ struct MovieRow: View {
     
     var body: some View {
         HStack {
+            
             Text(movie.title)
+            Spacer()
+            Text(movie.releaseYear)
         }
+        .padding()
     }
 }
 
