@@ -13,7 +13,7 @@ struct MovieRow: View {
     var body: some View {
         HStack {
             
-            Text(movie.title)
+            Text(movie.original_title)
             Spacer()
             Text(movie.releaseYear)
         }
@@ -23,7 +23,7 @@ struct MovieRow: View {
 
 struct MovieRow_Previews: PreviewProvider {
     static var previews: some View {
-        let previewMovie = Movie(posterPath: nil, title: "Nome do filme", releaseDate: "2021", overview: "Resumo do filme", genresId: [])
+        let previewMovie = Movie(id: 0, poster_path: nil, original_title: "Nome do filme", release_date: "2021", overview: "Resumo do filme", genre_ids: [])
         MovieRow(movie: previewMovie)
     }
 }

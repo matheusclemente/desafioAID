@@ -7,17 +7,16 @@
 
 import Foundation
 
-struct Movie: Identifiable {
-    let id = UUID()
-    let posterPath: String?
-    let title: String
-    let releaseDate: String
+struct Movie: Identifiable, Codable {
+    let id: Int
+    let poster_path: String?
+    let original_title: String
+    let release_date: String
     
     let overview: String
-    let genresId: [Int]
+    let genre_ids: [Int]
     var releaseYear: String {
-        String(releaseDate.prefix(4))
+        String(release_date.prefix(4))
     }
-    
     
 }

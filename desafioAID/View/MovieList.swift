@@ -20,6 +20,9 @@ struct MovieList: View {
             MovieRow(movie: placeholderMovies[2])
             MovieRow(movie: placeholderMovies[3])
             MovieRow(movie: placeholderMovies[4])
+        }.onAppear {
+            print("aooo")
+            APIService().loadData()
         }
     }
 }
@@ -33,10 +36,10 @@ struct MovieList_Previews: PreviewProvider {
 
 //Test Data
 var placeholderMovies = [
-    Movie(posterPath: nil, title: "Filme 1", releaseDate: "2021", overview: "", genresId: []),
-    Movie(posterPath: nil, title: "Filme 2", releaseDate: "2020", overview: "", genresId: []),
-    Movie(posterPath: nil, title: "Filme 3", releaseDate: "2019", overview: "", genresId: []),
-    Movie(posterPath: nil, title: "Filme 4", releaseDate: "2018", overview: "", genresId: []),
-    Movie(posterPath: nil, title: "Filme 5", releaseDate: "2017", overview: "", genresId: [])
+    Movie(id: 1, poster_path: nil, original_title: "Filme 1", release_date: "2021", overview: "", genre_ids: []),
+    Movie(id: 2, poster_path: nil, original_title: "Filme 2", release_date: "2020", overview: "", genre_ids: []),
+    Movie(id: 3, poster_path: nil, original_title: "Filme 3", release_date: "2019", overview: "", genre_ids: []),
+    Movie(id: 4, poster_path: nil, original_title: "Filme 4", release_date: "2018", overview: "", genre_ids: []),
+    Movie(id: 5, poster_path: nil, original_title: "Filme 5", release_date: "2017", overview: "", genre_ids: [])
     
 ]

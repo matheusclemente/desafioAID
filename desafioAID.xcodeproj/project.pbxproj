@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0BC4762687AF7B00F7AE3D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0BC4752687AF7B00F7AE3D /* APIService.swift */; };
 		CCB4690026862B3C0024E2F4 /* desafioAIDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB468FF26862B3C0024E2F4 /* desafioAIDApp.swift */; };
 		CCB4690226862B3C0024E2F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4690126862B3C0024E2F4 /* ContentView.swift */; };
 		CCB4690426862B420024E2F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB4690326862B420024E2F4 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC0BC4752687AF7B00F7AE3D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		CCB468FC26862B3C0024E2F4 /* desafioAID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = desafioAID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCB468FF26862B3C0024E2F4 /* desafioAIDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafioAIDApp.swift; sourceTree = "<group>"; };
 		CCB4690126862B3C0024E2F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../New Group/ContentView.swift"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				CCB4690326862B420024E2F4 /* Assets.xcassets */,
 				CCB4690826862B420024E2F4 /* Info.plist */,
 				CCB4690526862B420024E2F4 /* Preview Content */,
+				CC0BC4752687AF7B00F7AE3D /* APIService.swift */,
 			);
 			path = desafioAID;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */,
 				CCB4690026862B3C0024E2F4 /* desafioAIDApp.swift in Sources */,
 				CCFF2FA4268666D20087979A /* MovieList.swift in Sources */,
+				CC0BC4762687AF7B00F7AE3D /* APIService.swift in Sources */,
 				CCB4692B26862D900024E2F4 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
