@@ -14,7 +14,7 @@ struct RequestResult: Codable {
 }
 
 class APIService {
-    func loadData() {
+    func loadData(completion: @escaping ([Movie]) -> ()) {
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=3364f96fa6acefbd524335c6cc0a4932&language=en-US&page=1") else {
             print("Invalid endpoint")
             return
@@ -28,7 +28,8 @@ class APIService {
             }
             if let result = try? JSONDecoder().decode(RequestResult.self, from: data) {
                 DispatchQueue.main.async {
-                    print(result)
+                    //print(result)
+                    completion(result.results)
                 }
                 return
             } else {

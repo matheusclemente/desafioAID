@@ -9,20 +9,17 @@ import SwiftUI
 
 struct MovieList: View {
     
+    @State var movies: [Movie] = []
+    
     var body: some View {
-        List {
-            MovieRow(movie: placeholderMovies[0])
-            MovieRow(movie: placeholderMovies[1])
-            MovieRow(movie: placeholderMovies[2])
-            MovieRow(movie: placeholderMovies[3])
-            MovieRow(movie: placeholderMovies[4])
-            MovieRow(movie: placeholderMovies[0])
-            MovieRow(movie: placeholderMovies[1])
-            MovieRow(movie: placeholderMovies[2])
-            MovieRow(movie: placeholderMovies[3])
-            MovieRow(movie: placeholderMovies[4])
+        
+        List(movies) { movieItem in
+            MovieRow(movie: movieItem)
         }.onAppear {
-            APIService().loadData()
+            //API request
+            APIService().loadData { movies in
+                self.movies = movies
+            }
         }
     }
 }
