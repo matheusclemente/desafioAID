@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieList: View {
+    
     var body: some View {
         List {
             MovieRow(movie: placeholderMovies[0])
@@ -21,7 +22,6 @@ struct MovieList: View {
             MovieRow(movie: placeholderMovies[3])
             MovieRow(movie: placeholderMovies[4])
         }.onAppear {
-            print("aooo")
             APIService().loadData()
         }
     }

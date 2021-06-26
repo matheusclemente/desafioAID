@@ -8,10 +8,9 @@
 import Foundation
 
 struct RequestResult: Codable {
-    //let results: [Movie]
+    let results: [Movie]
     let total_results: Int
     let page: Int
-    let total_pages: Int
 }
 
 class APIService {
@@ -23,21 +22,18 @@ class APIService {
         let request = URLRequest(url: url)
 
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                print(data)
-                if let result = try? JSONDecoder().decode(RequestResult.self, from: data) {
-                    DispatchQueue.main.async {
-                        print(result)
-                    }
-                    return
-
-                } else {
-                    print("Invalid result")
-                }
-            } else {
+            guard let data = data else {
                 print("Invalid data")
+                return
+            }
+            if let result = try? JSONDecoder().decode(RequestResult.self, from: data) {
+                DispatchQueue.main.async {
+                    print(result)
+                }
+                return
+            } else {
+                print("Invalid result")
             }
         }.resume()
-        
     }
 }
