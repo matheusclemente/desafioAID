@@ -18,5 +18,7 @@ struct Movie: Identifiable, Codable {
     var releaseYear: String {
         String(release_date?.prefix(4) ?? "----")
     }
-    
+    var posterUrl: String {
+        "https://www.themoviedb.org/t/p/w440_and_h660_face" + (poster_path ?? "")
+    }
 }

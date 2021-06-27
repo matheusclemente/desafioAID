@@ -10,15 +10,22 @@ import SwiftUI
 struct MovieList: View {
     
     @State var movies: [Movie] = []
+    let requester = APIService()
     
     var body: some View {
-        
-        List(movies) { movieItem in
-            MovieRow(movie: movieItem)
-        }.onAppear {
-            //API request
-            APIService().loadData { movies in
-                self.movies = movies
+        NavigationView {
+            List(movies) { movieItem in
+                let imageData = requester.loadImageData(url: movieItem.posterUrl)
+                
+                NavigationLink(destination: MovieDetails(movie: movieItem, imageData: imageData)){
+                    MovieRow(movie: movieItem, imageData: imageData)
+                }
+            }
+            .onAppear {
+                //API request
+                requester.loadPopularMoviesData { movies in
+                    self.movies = movies
+                }
             }
         }
     }
@@ -30,13 +37,3 @@ struct MovieList_Previews: PreviewProvider {
     }
 }
 
-
-//Test Data
-var placeholderMovies = [
-    Movie(id: 1, poster_path: nil, original_title: "Filme 1", release_date: "2021", overview: "", genre_ids: []),
-    Movie(id: 2, poster_path: nil, original_title: "Filme 2", release_date: "2020", overview: "", genre_ids: []),
-    Movie(id: 3, poster_path: nil, original_title: "Filme 3", release_date: "2019", overview: "", genre_ids: []),
-    Movie(id: 4, poster_path: nil, original_title: "Filme 4", release_date: "2018", overview: "", genre_ids: []),
-    Movie(id: 5, poster_path: nil, original_title: "Filme 5", release_date: "2017", overview: "", genre_ids: [])
-    
-]
