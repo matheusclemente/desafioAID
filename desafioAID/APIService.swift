@@ -44,6 +44,7 @@ class APIService {
     func loadSearchedMovies(title: String, completion: @escaping ([Movie]) -> ()) {
         guard let url = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=3364f96fa6acefbd524335c6cc0a4932&query=\(title)") else {
             print("Invalid endpoint")
+            completion([])
             return
         }
         
@@ -52,6 +53,7 @@ class APIService {
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
                 print("Invalid data")
+                completion([])
                 return
             }
             if let result = try? JSONDecoder().decode(RequestResult.self, from: data) {
@@ -62,6 +64,7 @@ class APIService {
                 return
             } else {
                 print("Invalid result")
+                completion([])
             }
         }.resume()
     }

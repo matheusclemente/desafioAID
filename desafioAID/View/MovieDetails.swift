@@ -10,6 +10,7 @@ import SwiftUI
 struct MovieDetails: View {
     var movie : Movie
     var imageData: Data
+    @State private var isFavorited = false
     
     let imageWidth: CGFloat = 220.0
     let imageHeight: CGFloat = 330.0
@@ -17,6 +18,10 @@ struct MovieDetails: View {
     var body: some View {
         ScrollView {
             VStack {
+             
+                Toggle("Favorite", isOn: $isFavorited)
+                    .toggleStyle(SwitchToggleStyle(tint: .blue))
+                
                 Image(uiImage: UIImage(data: imageData) ?? UIImage())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -36,6 +41,10 @@ struct MovieDetails: View {
                     
             }
             .padding()
+            .onAppear {
+                //Set favorite toggle acording to movie status
+                self.isFavorited = movie.isFavorited
+            }
         }
     }
 }

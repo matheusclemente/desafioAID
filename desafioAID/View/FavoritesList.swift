@@ -8,9 +8,27 @@
 import SwiftUI
 
 struct FavoritesList: View {
+    
+    @State private var movies: [Movie] = []
+    let requester = APIService()
+    
     var body: some View {
-        Text("Lista de Favoritos")
-    }
+        NavigationView {
+            VStack {
+                    
+                List(movies) { movieItem in
+                    let imageData = requester.loadImageData(url: movieItem.posterUrl)
+                    
+                    NavigationLink(destination: MovieDetails(movie: movieItem, imageData: imageData)){
+                        MovieRow(movie: movieItem, imageData: imageData)
+                    }
+                }
+                .onAppear {
+                    //Load database
+                    }
+                }
+            }
+        }    
 }
 
 struct FavoritesList_Previews: PreviewProvider {
