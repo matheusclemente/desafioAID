@@ -10,14 +10,12 @@
 		CC0BC4762687AF7B00F7AE3D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0BC4752687AF7B00F7AE3D /* APIService.swift */; };
 		CC9025832687F4E700B15780 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9025822687F4E700B15780 /* MovieDetails.swift */; };
 		CCB4690026862B3C0024E2F4 /* desafioAIDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB468FF26862B3C0024E2F4 /* desafioAIDApp.swift */; };
-		CCB4690226862B3C0024E2F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4690126862B3C0024E2F4 /* ContentView.swift */; };
 		CCB4690426862B420024E2F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB4690326862B420024E2F4 /* Assets.xcassets */; };
 		CCB4690726862B420024E2F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB4690626862B420024E2F4 /* Preview Assets.xcassets */; };
 		CCB4691226862B420024E2F4 /* desafioAIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4691126862B420024E2F4 /* desafioAIDTests.swift */; };
 		CCB4691D26862B420024E2F4 /* desafioAIDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4691C26862B420024E2F4 /* desafioAIDUITests.swift */; };
 		CCB4692B26862D900024E2F4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4692A26862D900024E2F4 /* Movie.swift */; };
 		CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF2F9F26863DAE0087979A /* MovieRow.swift */; };
-		CCFF2FA226865CE30087979A /* poster_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFF2FA126865CE30087979A /* poster_placeholder.png */; };
 		CCFF2FA4268666D20087979A /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF2FA3268666D10087979A /* MovieList.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +41,6 @@
 		CC9025822687F4E700B15780 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		CCB468FC26862B3C0024E2F4 /* desafioAID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = desafioAID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCB468FF26862B3C0024E2F4 /* desafioAIDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafioAIDApp.swift; sourceTree = "<group>"; };
-		CCB4690126862B3C0024E2F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../New Group/ContentView.swift"; sourceTree = "<group>"; };
 		CCB4690326862B420024E2F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCB4690626862B420024E2F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CCB4690826862B420024E2F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,7 +52,6 @@
 		CCB4691E26862B420024E2F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCB4692A26862D900024E2F4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		CCFF2F9F26863DAE0087979A /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
-		CCFF2FA126865CE30087979A /* poster_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poster_placeholder.png; sourceTree = "<group>"; };
 		CCFF2FA3268666D10087979A /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,10 +107,9 @@
 				CC0BC4752687AF7B00F7AE3D /* APIService.swift */,
 				CCFF2FA626866EF40087979A /* Model */,
 				CCFF2FA526866DDA0087979A /* View */,
-				CCFF2FA126865CE30087979A /* poster_placeholder.png */,
+				CCB4690526862B420024E2F4 /* Preview Content */,
 				CCB4690326862B420024E2F4 /* Assets.xcassets */,
 				CCB4690826862B420024E2F4 /* Info.plist */,
-				CCB4690526862B420024E2F4 /* Preview Content */,
 			);
 			path = desafioAID;
 			sourceTree = "<group>";
@@ -150,7 +145,6 @@
 			children = (
 				CCFF2FA3268666D10087979A /* MovieList.swift */,
 				CCFF2F9F26863DAE0087979A /* MovieRow.swift */,
-				CCB4690126862B3C0024E2F4 /* ContentView.swift */,
 				CC9025822687F4E700B15780 /* MovieDetails.swift */,
 			);
 			path = View;
@@ -268,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB4690726862B420024E2F4 /* Preview Assets.xcassets in Resources */,
-				CCFF2FA226865CE30087979A /* poster_placeholder.png in Resources */,
 				CCB4690426862B420024E2F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCB4690226862B3C0024E2F4 /* ContentView.swift in Sources */,
 				CC9025832687F4E700B15780 /* MovieDetails.swift in Sources */,
 				CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */,
 				CCB4690026862B3C0024E2F4 /* desafioAIDApp.swift in Sources */,

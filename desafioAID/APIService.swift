@@ -14,11 +14,39 @@ struct RequestResult: Codable {
 }
 
 class APIService {
+    
+    let api_key = "3364f96fa6acefbd524335c6cc0a4932"
+    
     func loadPopularMoviesData(completion: @escaping ([Movie]) -> ()) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=3364f96fa6acefbd524335c6cc0a4932&language=en-US&page=1") else {
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(api_key)") else {
             print("Invalid endpoint")
             return
         }
+        let request = URLRequest(url: url)
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print("Invalid data")
+                return
+            }
+            if let result = try? JSONDecoder().decode(RequestResult.self, from: data) {
+                DispatchQueue.main.async {
+                    //print(result)
+                    completion(result.results)
+                }
+                return
+            } else {
+                print("Invalid result")
+            }
+        }.resume()
+    }
+    
+    func loadSearchedMovies(title: String, completion: @escaping ([Movie]) -> ()) {
+        guard let url = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=3364f96fa6acefbd524335c6cc0a4932&query=\(title)") else {
+            print("Invalid endpoint")
+            return
+        }
+        
         let request = URLRequest(url: url)
 
         URLSession.shared.dataTask(with: request) { data, response, error in

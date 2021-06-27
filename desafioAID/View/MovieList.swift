@@ -9,22 +9,33 @@ import SwiftUI
 
 struct MovieList: View {
     
-    @State var movies: [Movie] = []
+    @State private var movies: [Movie] = []
+    @State private var searchText: String = ""
     let requester = APIService()
     
     var body: some View {
         NavigationView {
-            List(movies) { movieItem in
-                let imageData = requester.loadImageData(url: movieItem.posterUrl)
+            VStack {
+                TextField("Search a movie", text: $searchText, onCommit: {
+                    requester.loadSearchedMovies(title: searchText) { movies in
+                        self.movies = movies
+                    }
+                }).padding()
                 
-                NavigationLink(destination: MovieDetails(movie: movieItem, imageData: imageData)){
-                    MovieRow(movie: movieItem, imageData: imageData)
+                    
+                List(movies) { movieItem in
+                    let imageData = requester.loadImageData(url: movieItem.posterUrl)
+                    
+                    NavigationLink(destination: MovieDetails(movie: movieItem, imageData: imageData)){
+                        MovieRow(movie: movieItem, imageData: imageData)
+                    }
                 }
-            }
-            .onAppear {
-                //API request
-                requester.loadPopularMoviesData { movies in
-                    self.movies = movies
+                .onAppear {
+                    if searchText == "" { //only go for popular movies if no search was made
+                        requester.loadPopularMoviesData { movies in
+                            self.movies = movies
+                        }
+                    }
                 }
             }
         }

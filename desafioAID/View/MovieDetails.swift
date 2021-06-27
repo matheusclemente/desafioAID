@@ -32,6 +32,7 @@ struct MovieDetails: View {
 
                 Text(movie.overview)
                     .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
                     
             }
             .padding()
