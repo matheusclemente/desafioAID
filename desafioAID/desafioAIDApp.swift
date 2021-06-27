@@ -11,7 +11,7 @@ import SwiftUI
 struct desafioAIDApp: App {
     var body: some Scene {
         WindowGroup {
-            MovieList()
+            MainView()
         }
     }
 }

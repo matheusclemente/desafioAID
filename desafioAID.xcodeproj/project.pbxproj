@@ -15,6 +15,8 @@
 		CCB4691226862B420024E2F4 /* desafioAIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4691126862B420024E2F4 /* desafioAIDTests.swift */; };
 		CCB4691D26862B420024E2F4 /* desafioAIDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4691C26862B420024E2F4 /* desafioAIDUITests.swift */; };
 		CCB4692B26862D900024E2F4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4692A26862D900024E2F4 /* Movie.swift */; };
+		CCD15E5B26890C0300AA3EC4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15E5A26890C0300AA3EC4 /* MainView.swift */; };
+		CCD15E5D26890CDC00AA3EC4 /* FavoritesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15E5C26890CDC00AA3EC4 /* FavoritesList.swift */; };
 		CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF2F9F26863DAE0087979A /* MovieRow.swift */; };
 		CCFF2FA4268666D20087979A /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF2FA3268666D10087979A /* MovieList.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,8 @@
 		CCB4691C26862B420024E2F4 /* desafioAIDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = desafioAIDUITests.swift; sourceTree = "<group>"; };
 		CCB4691E26862B420024E2F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCB4692A26862D900024E2F4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		CCD15E5A26890C0300AA3EC4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CCD15E5C26890CDC00AA3EC4 /* FavoritesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesList.swift; sourceTree = "<group>"; };
 		CCFF2F9F26863DAE0087979A /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
 		CCFF2FA3268666D10087979A /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,9 +147,11 @@
 		CCFF2FA526866DDA0087979A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CCD15E5A26890C0300AA3EC4 /* MainView.swift */,
 				CCFF2FA3268666D10087979A /* MovieList.swift */,
-				CCFF2F9F26863DAE0087979A /* MovieRow.swift */,
+				CCD15E5C26890CDC00AA3EC4 /* FavoritesList.swift */,
 				CC9025822687F4E700B15780 /* MovieDetails.swift */,
+				CCFF2F9F26863DAE0087979A /* MovieRow.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,9 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC9025832687F4E700B15780 /* MovieDetails.swift in Sources */,
+				CCD15E5B26890C0300AA3EC4 /* MainView.swift in Sources */,
 				CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */,
 				CCB4690026862B3C0024E2F4 /* desafioAIDApp.swift in Sources */,
 				CCFF2FA4268666D20087979A /* MovieList.swift in Sources */,
+				CCD15E5D26890CDC00AA3EC4 /* FavoritesList.swift in Sources */,
 				CC0BC4762687AF7B00F7AE3D /* APIService.swift in Sources */,
 				CCB4692B26862D900024E2F4 /* Movie.swift in Sources */,
 			);
