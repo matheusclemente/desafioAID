@@ -11,6 +11,7 @@ struct MovieList: View {
     
     @State private var movies: [Movie] = []
     @State private var searchText: String = ""
+    @State private var connectionErrorAlert: Bool = false
     @State private var searchErrorAlert: Bool = false
     let requester = APIService()
     
@@ -18,8 +19,10 @@ struct MovieList: View {
         NavigationView {
             VStack {
                 TextField("Search a movie", text: $searchText, onCommit: {
-                    requester.loadSearchedMovies(title: searchText) { movies in
-                        if movies.isEmpty {
+                    requester.loadSearchedMovies(title: searchText) { movies, sucess  in
+                        if !sucess {
+                            connectionErrorAlert = true
+                        } else if movies.isEmpty {
                             print("Error")
                             searchErrorAlert = true
                         } else {
@@ -27,6 +30,9 @@ struct MovieList: View {
                         }
                     }
                 }).padding()
+                .alert(isPresented: $searchErrorAlert) {
+                    Alert(title: Text("Sem resultados"), message: Text("Nenhum filme foi encontrado. Use outra palavra-chave e tente novamente") , dismissButton: .default(Text("Ok")))
+                }
                 
                 
                 List(movies) { movieItem in
@@ -44,8 +50,8 @@ struct MovieList: View {
                     }
                 }
             }
-        }.alert(isPresented: $searchErrorAlert) {
-            Alert(title: Text("Erro"), message: Text("Houve um erro ao buscar filmes, por favor tente novamente") , dismissButton: .default(Text("Ok")))
+        }.alert(isPresented: $connectionErrorAlert) {
+            Alert(title: Text("Erro"), message: Text("Falha ao conectar ao banco de dados. Verifique sua conexão ou tente novamente mais tarde") , dismissButton: .default(Text("Ok")))
         }
     }
 }
