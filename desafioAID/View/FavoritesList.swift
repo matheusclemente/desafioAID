@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+enum SortOption {
+    case none
+    case nameUp
+    case nameDown
+    case releaseYearUp
+    case releaseYearDown
+}
+
 struct FavoritesList: View {
     
     @State private var movies: [Movie] = []
@@ -21,10 +29,22 @@ struct FavoritesList: View {
     @FetchRequest(sortDescriptors: [])
     var favorites: FetchedResults<FavoritedMovie>
     
+    @State private var selectedSort: SortOption = SortOption.none
+    
     var body: some View {
         NavigationView {
             VStack {
-                    
+                
+                Picker("Order by", selection: $selectedSort) {
+                    Text("Title(inc)").tag(SortOption.nameUp)
+                    Text("Title(dec)").tag(SortOption.nameDown)
+                    Text("Year(inc)").tag(SortOption.releaseYearUp)
+                    Text("Year(dec)").tag(SortOption.releaseYearDown)
+                }.pickerStyle(MenuPickerStyle())
+                .onChange(of: selectedSort, perform: { value in
+                   sortList(by: value)
+                })
+                
                 TextField("Search a favorite", text: $searchText, onCommit: {
                     guard searchText != "" else {
                         self.favoritesList = Array(favorites)
@@ -63,6 +83,21 @@ struct FavoritesList: View {
             }
         }.alert(isPresented: $searchErrorAlert) {
             Alert(title: Text("Erro"), message: Text("Nenhum favorito encontrado, por favor tente novamente") , dismissButton: .default(Text("Ok")))
+        }
+    }
+    
+    private func sortList(by value: SortOption) {
+        switch value {
+        case .nameUp:
+            favoritesList.sort {$0.title! < $1.title!}
+        case .nameDown:
+            favoritesList.sort {$0.title! > $1.title!}
+        case .releaseYearUp:
+            favoritesList.sort {$0.releaseDate! < $1.releaseDate!}
+        case .releaseYearDown:
+            favoritesList.sort {$0.releaseDate! > $1.releaseDate!}
+        default:
+            break
         }
     }
 }
