@@ -21,7 +21,4 @@ struct Movie: Identifiable, Codable {
     var posterUrl: String {
         "https://www.themoviedb.org/t/p/w440_and_h660_face" + (poster_path ?? "")
     }
-    var isFavorited: Bool {
-        false
-    }
 }

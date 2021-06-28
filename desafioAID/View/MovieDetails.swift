@@ -61,9 +61,6 @@ struct MovieDetails: View {
             }
             .padding()
             .onAppear {
-                //Set favorite toggle acording to movie status
-                self.isFavorited = movie.isFavorited
-                
                 requester.loadGenreList { genreList in
                     var array: [String] = []
                     for id in movie.genre_ids {
