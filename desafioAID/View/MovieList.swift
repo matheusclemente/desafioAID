@@ -19,10 +19,11 @@ struct MovieList: View {
             VStack {
                 TextField("Search a movie", text: $searchText, onCommit: {
                     requester.loadSearchedMovies(title: searchText) { movies in
-                        self.movies = movies
                         if movies.isEmpty {
                             print("Error")
                             searchErrorAlert = true
+                        } else {
+                            self.movies = movies
                         }
                     }
                 }).padding()

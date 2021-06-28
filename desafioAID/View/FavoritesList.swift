@@ -10,7 +10,11 @@ import SwiftUI
 struct FavoritesList: View {
     
     @State private var movies: [Movie] = []
+    @State private var searchText: String = ""
+    @State private var favoritesList: [FavoritedMovie] = []
+    @State private var searchErrorAlert: Bool = false
     let requester = APIService()
+    
     
     // Persistence
     @Environment(\.managedObjectContext) private var viewContext
@@ -21,7 +25,26 @@ struct FavoritesList: View {
         NavigationView {
             VStack {
                     
-                List(favorites) { favoritedItem in
+                TextField("Search a favorite", text: $searchText, onCommit: {
+                    guard searchText != "" else {
+                        self.favoritesList = Array(favorites)
+                        return
+                    }
+                    var searchedItens: [FavoritedMovie] = []
+                    for item in favorites {
+                        if item.title!.lowercased().contains(searchText.lowercased()) {
+                            searchedItens.append(item)
+                        }
+                    }
+                    if searchedItens.isEmpty {
+                        print("search error")
+                        searchErrorAlert = true
+                    } else {
+                        self.favoritesList = searchedItens
+                    }
+                }).padding()
+                
+                List(favoritesList) { favoritedItem in
                     let movieItem = Movie(id: Int(favoritedItem.id),
                                           poster_path: favoritedItem.posterPath,
                                           original_title: favoritedItem.title ?? "",
@@ -34,13 +57,14 @@ struct FavoritesList: View {
                     NavigationLink(destination: MovieDetails(movie: movieItem, imageData: imageData)){
                         MovieRow(movie: movieItem, imageData: imageData)
                     }
-                }
-                .onAppear {
-                    //Load database
-                    }
+                }.onAppear {
+                    self.favoritesList = Array(favorites)
                 }
             }
-        }    
+        }.alert(isPresented: $searchErrorAlert) {
+            Alert(title: Text("Erro"), message: Text("Nenhum favorito encontrado, por favor tente novamente") , dismissButton: .default(Text("Ok")))
+        }
+    }
 }
 
 struct FavoritesList_Previews: PreviewProvider {
