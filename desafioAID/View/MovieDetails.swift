@@ -14,13 +14,27 @@ struct MovieDetails: View {
     
     let imageWidth: CGFloat = 220.0
     let imageHeight: CGFloat = 330.0
+    
+    // Persistence
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [])
+    var favorites: FetchedResults<FavoritedMovie>
 
     var body: some View {
         ScrollView {
             VStack {
              
-                Toggle("Favorite", isOn: $isFavorited)
-                    .toggleStyle(SwitchToggleStyle(tint: .blue))
+                if let movie = favorites.first(where: {$0.id == movie.id}) { //checks if movie is already favorited
+                    Button("Unfavorite") {
+                        deleteFavorite(movie)
+                    }
+                } else {
+                    Button("Favorite") {
+                        addFavorite()
+                    }
+                }
+                
+                
                 
                 Image(uiImage: UIImage(data: imageData) ?? UIImage())
                     .resizable()
@@ -45,6 +59,34 @@ struct MovieDetails: View {
                 //Set favorite toggle acording to movie status
                 self.isFavorited = movie.isFavorited
             }
+        }
+    }
+    
+    private func addFavorite() {
+        let newFavorite = FavoritedMovie(context: viewContext)
+        newFavorite.id = Int64(movie.id)
+        newFavorite.posterPath = movie.poster_path
+        newFavorite.title = movie.original_title
+        newFavorite.releaseDate = movie.release_date
+        newFavorite.overview = movie.overview
+        newFavorite.genreId = movie.genre_ids
+        
+        do {
+            try viewContext.save()
+        } catch {
+            let error = error as NSError
+            fatalError("Database error: \(error)")
+        }
+    }
+    
+    private func deleteFavorite(_ favoritedMovie: FavoritedMovie) {
+        viewContext.delete(favoritedMovie)
+        
+        do {
+            try viewContext.save()
+        } catch {
+            let error = error as NSError
+            fatalError("Database error: \(error)")
         }
     }
 }

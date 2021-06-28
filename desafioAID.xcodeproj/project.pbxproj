@@ -17,6 +17,9 @@
 		CCB4692B26862D900024E2F4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB4692A26862D900024E2F4 /* Movie.swift */; };
 		CCD15E5B26890C0300AA3EC4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15E5A26890C0300AA3EC4 /* MainView.swift */; };
 		CCD15E5D26890CDC00AA3EC4 /* FavoritesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15E5C26890CDC00AA3EC4 /* FavoritesList.swift */; };
+		CCD15E602689354200AA3EC4 /* desafioAID.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCD15E5E2689354200AA3EC4 /* desafioAID.xcdatamodeld */; };
+		CCD15E9F268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15E9D268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift */; };
+		CCD15EA22689388600AA3EC4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15EA12689388600AA3EC4 /* Persistence.swift */; };
 		CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF2F9F26863DAE0087979A /* MovieRow.swift */; };
 		CCFF2FA4268666D20087979A /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF2FA3268666D10087979A /* MovieList.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +58,9 @@
 		CCB4692A26862D900024E2F4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		CCD15E5A26890C0300AA3EC4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CCD15E5C26890CDC00AA3EC4 /* FavoritesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesList.swift; sourceTree = "<group>"; };
+		CCD15E5F2689354200AA3EC4 /* desafioAID.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = desafioAID.xcdatamodel; sourceTree = "<group>"; };
+		CCD15E9D268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedMovie+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CCD15EA12689388600AA3EC4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CCFF2F9F26863DAE0087979A /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
 		CCFF2FA3268666D10087979A /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,10 +115,12 @@
 			children = (
 				CCB468FF26862B3C0024E2F4 /* desafioAIDApp.swift */,
 				CC0BC4752687AF7B00F7AE3D /* APIService.swift */,
+				CCD15EA12689388600AA3EC4 /* Persistence.swift */,
 				CCFF2FA626866EF40087979A /* Model */,
 				CCFF2FA526866DDA0087979A /* View */,
 				CCB4690526862B420024E2F4 /* Preview Content */,
 				CCB4690326862B420024E2F4 /* Assets.xcassets */,
+				CCD15E5E2689354200AA3EC4 /* desafioAID.xcdatamodeld */,
 				CCB4690826862B420024E2F4 /* Info.plist */,
 			);
 			path = desafioAID;
@@ -160,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				CCB4692A26862D900024E2F4 /* Movie.swift */,
+				CCD15E9D268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCD15EA22689388600AA3EC4 /* Persistence.swift in Sources */,
 				CC9025832687F4E700B15780 /* MovieDetails.swift in Sources */,
 				CCD15E5B26890C0300AA3EC4 /* MainView.swift in Sources */,
 				CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */,
@@ -300,7 +310,9 @@
 				CCFF2FA4268666D20087979A /* MovieList.swift in Sources */,
 				CCD15E5D26890CDC00AA3EC4 /* FavoritesList.swift in Sources */,
 				CC0BC4762687AF7B00F7AE3D /* APIService.swift in Sources */,
+				CCD15E9F268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift in Sources */,
 				CCB4692B26862D900024E2F4 /* Movie.swift in Sources */,
+				CCD15E602689354200AA3EC4 /* desafioAID.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +632,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CCD15E5E2689354200AA3EC4 /* desafioAID.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CCD15E5F2689354200AA3EC4 /* desafioAID.xcdatamodel */,
+			);
+			currentVersion = CCD15E5F2689354200AA3EC4 /* desafioAID.xcdatamodel */;
+			path = desafioAID.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CCB468F426862B3C0024E2F4 /* Project object */;
 }
