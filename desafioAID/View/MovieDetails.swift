@@ -11,10 +11,13 @@ struct MovieDetails: View {
     var movie : Movie
     var imageData: Data
     @State private var isFavorited = false
+    @State private var genreText = ""
     
     let imageWidth: CGFloat = 220.0
     let imageHeight: CGFloat = 330.0
     
+    let requester = APIService()
+
     // Persistence
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [])
@@ -34,8 +37,6 @@ struct MovieDetails: View {
                     }
                 }
                 
-                
-                
                 Image(uiImage: UIImage(data: imageData) ?? UIImage())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -48,6 +49,10 @@ struct MovieDetails: View {
                     
                 Text(movie.releaseYear)
                     .font(.subheadline)
+                
+                Text(genreText)
+                    .font(.headline)
+                    
 
                 Text(movie.overview)
                     .multilineTextAlignment(.leading)
@@ -58,6 +63,16 @@ struct MovieDetails: View {
             .onAppear {
                 //Set favorite toggle acording to movie status
                 self.isFavorited = movie.isFavorited
+                
+                requester.loadGenreList { genreList in
+                    var array: [String] = []
+                    for id in movie.genre_ids {
+                        if let name = genreList.first(where: {$0.id == id})?.name {
+                            array.append(name)
+                        }
+                    }
+                    genreText = array.joined(separator: ", ")
+                }
             }
         }
     }

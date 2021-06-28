@@ -20,6 +20,7 @@
 		CCD15E602689354200AA3EC4 /* desafioAID.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCD15E5E2689354200AA3EC4 /* desafioAID.xcdatamodeld */; };
 		CCD15E9F268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15E9D268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift */; };
 		CCD15EA22689388600AA3EC4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15EA12689388600AA3EC4 /* Persistence.swift */; };
+		CCD15EA42689652700AA3EC4 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD15EA32689652700AA3EC4 /* Genre.swift */; };
 		CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF2F9F26863DAE0087979A /* MovieRow.swift */; };
 		CCFF2FA4268666D20087979A /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFF2FA3268666D10087979A /* MovieList.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		CCD15E5F2689354200AA3EC4 /* desafioAID.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = desafioAID.xcdatamodel; sourceTree = "<group>"; };
 		CCD15E9D268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritedMovie+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CCD15EA12689388600AA3EC4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		CCD15EA32689652700AA3EC4 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		CCFF2F9F26863DAE0087979A /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
 		CCFF2FA3268666D10087979A /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 		CCFF2FA626866EF40087979A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CCD15EA32689652700AA3EC4 /* Genre.swift */,
 				CCB4692A26862D900024E2F4 /* Movie.swift */,
 				CCD15E9D268937FC00AA3EC4 /* FavoritedMovie+CoreDataClass.swift */,
 			);
@@ -305,6 +308,7 @@
 				CCD15EA22689388600AA3EC4 /* Persistence.swift in Sources */,
 				CC9025832687F4E700B15780 /* MovieDetails.swift in Sources */,
 				CCD15E5B26890C0300AA3EC4 /* MainView.swift in Sources */,
+				CCD15EA42689652700AA3EC4 /* Genre.swift in Sources */,
 				CCFF2FA026863DAE0087979A /* MovieRow.swift in Sources */,
 				CCB4690026862B3C0024E2F4 /* desafioAIDApp.swift in Sources */,
 				CCFF2FA4268666D20087979A /* MovieList.swift in Sources */,
